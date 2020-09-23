@@ -1,8 +1,8 @@
 {
-  "name": "",
-  "version": "",
-  "description": "",
-  "author": "",
+  "name": "similarHomes",
+  "version": "1.0.0",
+  "description": "Scrollable list of 15 house listing that contains description of each listing",
+  "author": "Daniel Flores",
   "license": "",
   "engines": {
     "node": ">=6.13.0"
