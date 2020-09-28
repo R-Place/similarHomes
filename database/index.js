@@ -1,12 +1,12 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/similarHomes', {useNewUrlParser: true, useUnifiedTopology: true});
+
+mongoose.connect('mongodb://localhost/similarHomes', { useNewUrlParser: true, useUnifiedTopology: true });
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function() {
-  console.log('You have connected')
+db.once('open', () => {
+  console.log('You have connected');
 });
-
 
 const similarHomesSchema = new mongoose.Schema({
   bedrooms: Number,
@@ -14,39 +14,39 @@ const similarHomesSchema = new mongoose.Schema({
   sqfootage: Number,
   district: String,
   address: String,
-  price: Number
-})
+  price: Number,
+  photo: String,
+});
 
-const Homes = mongoose.model('Homes', similarHomesSchema)
+const Homes = mongoose.model('Homes', similarHomesSchema);
 
 const addHome = (newhome) => {
-  const home = new Homes ({
+  const home = new Homes({
     bedrooms: newhome.bedrooms,
     baths: newhome.baths,
     sqfootage: newhome.sqfootage,
     district: newhome.district,
     address: newhome.address,
-    price: newhome.price
-  })
-  home.save((err) =>{
-    if(err){
-      console.log('Error Saving')
+    price: newhome.price,
+    photo: newhome.photo,
+  });
+  home.save((err) => {
+    if (err) {
+      console.log('Error Saving');
     }
-  })
-}
+  });
+};
 
 const drop = () => {
-  db.dropDatabase()
-}
+  db.dropDatabase();
+};
 
-const getAllHomes = (callback) =>{
+const getAllHomes = (callback) => {
   Homes.find()
-  .then(res => callback(null, res))
-  .catch(err => console.log(err))
-}
+    .then((res) => callback(null, res))
+    .catch((err) => console.log(err));
+};
 
-
-module.exports.addHome = addHome
-module.exports.drop = drop
-module.exports.getAllHomes = getAllHomes
-
+module.exports.addHome = addHome;
+module.exports.drop = drop;
+module.exports.getAllHomes = getAllHomes;
