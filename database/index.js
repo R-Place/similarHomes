@@ -42,7 +42,8 @@ const drop = () => {
 };
 
 const getAllHomes = (callback) => {
-  Homes.find()
+  // Homes.find()
+  Homes.aggregate([{ $sample: { size: 15}}]).exec()
     .then((res) => callback(null, res))
     .catch((err) => console.log(err));
 };
@@ -50,3 +51,5 @@ const getAllHomes = (callback) => {
 module.exports.addHome = addHome;
 module.exports.drop = drop;
 module.exports.getAllHomes = getAllHomes;
+
+// Homes.aggregate([{ $sample: { size: 15}}]).exec()
