@@ -43,7 +43,7 @@ const drop = () => {
 
 const getAllHomes = (callback) => {
   // Homes.find()
-  Homes.aggregate([{ $sample: { size: 15}}]).exec()
+  Homes.aggregate([{ $sample: { size: 15 } }]).exec()
     .then((res) => callback(null, res))
     .catch((err) => console.log(err));
 };

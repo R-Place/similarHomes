@@ -2,13 +2,17 @@ import React from 'react';
 import styled from 'styled-components';
 import Listing from './Listing.jsx';
 
-function ListingContainer({listings}) {
-  const houses = listings.map((listing) => <Listing listing={listing} />);
+const Container = styled.div`
+display:flex;
+justify-content:space-between;
+overflow:hidden;
+width:1010;
+`;
 
-  const Container = styled.div`
- display:flex;
- justify-content:space-between
-  `;
+function ListingContainer({ listings }) {
+  const houses = listings.map((listing) => (
+    <Listing listing={listing} key={Math.random()} />
+  ));
 
   return (
     <Container>

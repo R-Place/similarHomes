@@ -24,22 +24,56 @@ class App extends React.Component {
   }
 
   render() {
-    const Title = styled.h1`
-    font-size: 1.5em;
-    position:fixed;
+    // const Title = styled.h1`
+    // font-size: 1.5em;
+    // padding:30px;
+    // position:fixed;
+    // border:5px solid red;
+    // `;
+    const Test = styled.div`
+    position:relative;
+    width:1010;
+    margin:50px auto;
     `;
     const Listing = styled.div`
-    padding:50px
+    border:5px solid green;
+    width:1010;
+    margin:50px auto;
+    `;
+    const Prev = styled.button`
+    width:47px;
+    height:47px;
+    border-radius:50%;
+    border:1px solid green;
+    position:absolute;
+    top:40%;
+    left: -10px;
+    `;
+    const Next = styled.button`
+    width:47px;
+    height:47px;
+    border-radius:50%;
+    border:1px solid green;
+    position:absolute;
+    top:40%;
+    right: -10px;
     `;
 
     return (
 
-      <div>
-        <Title>Similar Homes You May Like</Title>
+      <Test>
+        {/* <Title>Similar Homes You May Like</Title> */}
+
         <Listing>
           <ListingContainer listings={this.state.listings} />
         </Listing>
-      </div>
+        <Prev>
+          Prev
+        </Prev>
+        <Next onClick={this.handleClick}>
+          Next
+        </Next>
+      </Test>
 
     );
   }
