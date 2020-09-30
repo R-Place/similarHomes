@@ -39,6 +39,7 @@ class App extends React.Component {
     border:5px solid green;
     width:1010;
     margin:50px auto;
+    overflow: hidden;
     `;
     const Prev = styled.button`
     width:47px;
@@ -67,12 +68,7 @@ class App extends React.Component {
         <Listing>
           <ListingContainer listings={this.state.listings} />
         </Listing>
-        <Prev>
-          Prev
-        </Prev>
-        <Next onClick={this.handleClick}>
-          Next
-        </Next>
+
       </Test>
 
     );
