@@ -27,8 +27,8 @@ class App extends React.Component {
     const Title = styled.h1`
     font-size: 1.5em;
     position:absolute;
-    border:5px solid red;
-    left: 13px;
+    // border:5px solid red;
+    left: 10px;
     `;
     const Test = styled.div`
     position:relative;
@@ -36,8 +36,8 @@ class App extends React.Component {
     margin:50px auto;
     `;
     const Listing = styled.div`
-    border:5px solid green;
-    width:1010;
+    //border:5px solid green;
+    width:1010px;
     margin:50px auto;
     overflow: hidden;
     `;
@@ -45,7 +45,7 @@ class App extends React.Component {
     width:47px;
     height:47px;
     border-radius:50%;
-    border:1px solid green;
+    // border:1px solid green;
     position:absolute;
     top:40%;
     left: -10px;
@@ -54,7 +54,7 @@ class App extends React.Component {
     width:47px;
     height:47px;
     border-radius:50%;
-    border:1px solid green;
+    // border:1px solid green;
     position:absolute;
     top:40%;
     right: -10px;

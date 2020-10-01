@@ -5,7 +5,7 @@ const List = styled.div`
 width:242px;
 display:flex;
 flex-direction:column;
-border:5px solid blue;
+// border:5px solid blue;
 `;
 const Description = styled.div`
 padding:2px

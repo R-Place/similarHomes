@@ -12,11 +12,16 @@ describe('App', () => {
   it('find the id listing', () => {
     expect(shallow(<App />).find('#listing').length).toEqual(1);
   });
+});
 
+describe('should render static HTML', () => {
+  it('should render to static HTML', () => {
+    expect(render(<App />).text()).toEqual('Similar Homes You May Like>');
+  });
 });
 
 describe('Tests for App component', () => {
-  it('should render without error', done => {
+  it('should render without error', (done) => {
     expect(shallow(<App />).exists()).toBe(true);
     done();
   });

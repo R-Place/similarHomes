@@ -10,22 +10,22 @@ width:1010;
 `;
 
 const Prev = styled.button`
-width:42px;
-height:42px;
+width:38px;
+height:38px;
 border-radius:50%;
 border:1px solid purple;
 position:absolute;
 top:40%;
-left: -10px;
+left: -1px;
 `;
 const Next = styled.button`
-width:42px;
-height:42px;
+width:38px;
+height:38px;
 border-radius:50%;
 border:1px solid purple;
 position:absolute;
 top:40%;
-right: -10px;
+right: -1px;
 `;
 
 const Test = styled.div`
