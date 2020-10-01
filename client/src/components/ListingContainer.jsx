@@ -10,8 +10,8 @@ width:1010;
 `;
 
 const Prev = styled.button`
-width:47px;
-height:47px;
+width:42px;
+height:42px;
 border-radius:50%;
 border:1px solid purple;
 position:absolute;
@@ -19,8 +19,8 @@ top:40%;
 left: -10px;
 `;
 const Next = styled.button`
-width:47px;
-height:47px;
+width:42px;
+height:42px;
 border-radius:50%;
 border:1px solid purple;
 position:absolute;
@@ -71,7 +71,7 @@ class ListingContainer extends React.Component {
             {houses}
           </Container>
           <Next onClick={this.handleClickNext}>
-            Next
+          &gt;
           </Next>
         </Test>
       );
@@ -84,7 +84,7 @@ class ListingContainer extends React.Component {
           </Container>
 
           <Prev onClick={this.handleClickPrev}>
-            Prev
+          &lt;
           </Prev>
         </Test>
       );
@@ -97,10 +97,10 @@ class ListingContainer extends React.Component {
           </Container>
 
           <Prev onClick={this.handleClickPrev}>
-            Prev
+          &lt;
           </Prev>
           <Next onClick={this.handleClickNext}>
-            Next
+          &gt;
           </Next>
 
         </Test>
