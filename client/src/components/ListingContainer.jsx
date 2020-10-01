@@ -72,7 +72,7 @@ class ListingContainer extends React.Component {
             {houses}
           </Container>
           <Next onClick={this.handleClickNext}>
-          &gt;
+            &gt;
           </Next>
         </Test>
       );
@@ -85,7 +85,7 @@ class ListingContainer extends React.Component {
           </Container>
 
           <Prev onClick={this.handleClickPrev}>
-          &lt;
+            &lt;
           </Prev>
         </Test>
       );
@@ -98,16 +98,15 @@ class ListingContainer extends React.Component {
           </Container>
 
           <Prev onClick={this.handleClickPrev}>
-          &lt;
+            &lt;
           </Prev>
           <Next onClick={this.handleClickNext}>
-          &gt;
+            &gt;
           </Next>
 
         </Test>
       );
     }
-
 
     return (
       <Test>
