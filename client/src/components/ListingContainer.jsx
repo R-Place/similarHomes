@@ -7,6 +7,7 @@ display:flex;
 justify-content:space-between;
 overflow:hidden
 width:1010;
+transition: 0.8s;
 `;
 
 const Prev = styled.button`

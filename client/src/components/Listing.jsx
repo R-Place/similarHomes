@@ -16,6 +16,18 @@ border-radius:10%;
 padding: 10px;
 width: 225px;
 height: 160px;
+position:relative;
+right: 8px;
+ `;
+
+const Heart = styled.img`
+border-radius:10%;
+width: 25px;
+height: 25px;
+right: 40px;
+top: 40px;
+position:relative;
+// background-color:red;
  `;
 
 const Item = styled.span`
@@ -34,6 +46,8 @@ function Listing({ listing }) {
 
   return (
     <List>
+      <Heart src="https://i.ibb.co/dGv2FgL/icons8-heart-100.png"  alt='heart'/>
+
       <Image
         src={photo}
         alt="Listing"
@@ -59,7 +73,6 @@ function Listing({ listing }) {
 
         , San Francisco
       </Item>
-
     </List>
 
   );
