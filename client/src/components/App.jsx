@@ -24,12 +24,12 @@ class App extends React.Component {
   }
 
   render() {
-    // const Title = styled.h1`
-    // font-size: 1.5em;
-    // padding:30px;
-    // position:fixed;
-    // border:5px solid red;
-    // `;
+    const Title = styled.h1`
+    font-size: 1.5em;
+    position:absolute;
+    border:5px solid red;
+    left: 13px;
+    `;
     const Test = styled.div`
     position:relative;
     width:1010;
@@ -63,9 +63,9 @@ class App extends React.Component {
     return (
 
       <Test>
-        {/* <Title>Similar Homes You May Like</Title> */}
+        <Title>Similar Homes You May Like</Title>
 
-        <Listing>
+        <Listing id="listing">
           <ListingContainer listings={this.state.listings} />
         </Listing>
 

@@ -34,36 +34,119 @@ width:1010;
 margin:50px auto;
 `;
 
-let motion = 0;
-function ListingContainer({ listings }) {
-  const houses = listings.map((listing) => (
-    <Listing listing={listing} key={Math.random()} />
-  ));
+let scroll = 0;
 
-  function handleClickNext() {
-    document.getElementById('container').style.transform = `translateX(${motion - 1000}px)`;
-    motion -= 1000;
-  }
-  function handleClickPrev() {
-    document.getElementById('container').style.transform = `translateX(${motion + 1000}px)`;
-    motion += 1000;
+class ListingContainer extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { motion: scroll };
+    this.handleClickNext = this.handleClickNext.bind(this);
+    this.handleClickPrev = this.handleClickPrev.bind(this);
   }
 
-  return (
-    <Test>
-      <Container id="container">
-        {houses}
-      </Container>
+  handleClickNext(event) {
+    document.getElementById('container').style.transform = `translateX(${scroll - 1010}px)`;
+    scroll -= 1010;
+    this.setState({ motion: scroll });
+    event.preventDefault();
+  }
 
-      <Prev onClick={handleClickPrev}>
-        Prev
-      </Prev>
-      <Next onClick={handleClickNext}>
-        Next
-      </Next>
+  handleClickPrev(event) {
+    document.getElementById('container').style.transform = `translateX(${scroll + 1010}px)`;
+    scroll += 1010;
+    this.setState({ motion: scroll });
+    event.preventDefault();
+  }
 
-    </Test>
-  );
+  render() {
+    const { listings } = this.props;
+    const houses = listings.map((listing) => (
+      <Listing listing={listing} key={Math.random()} />
+    ));
+    const scrollable = this.state.motion;
+    if (scrollable === 0) {
+      return (
+        <Test>
+          <Container id="container">
+            {houses}
+          </Container>
+          <Next onClick={this.handleClickNext}>
+            Next
+          </Next>
+        </Test>
+      );
+    }
+    if (scrollable === -3030) {
+      return (
+        <Test>
+          <Container id="container">
+            {houses}
+          </Container>
+
+          <Prev onClick={this.handleClickPrev}>
+            Prev
+          </Prev>
+        </Test>
+      );
+    }
+    if (scrollable === -1010 || -2020) {
+      return (
+        <Test>
+          <Container id="container">
+            {houses}
+          </Container>
+
+          <Prev onClick={this.handleClickPrev}>
+            Prev
+          </Prev>
+          <Next onClick={this.handleClickNext}>
+            Next
+          </Next>
+
+        </Test>
+      );
+    }
+
+
+    return (
+      <Test>
+        <Container id="container">
+          {houses}
+        </Container>
+      </Test>
+
+    );
+  }
 }
+// function ListingContainer({ listings }) {
+//   const houses = listings.map((listing) => (
+//     <Listing listing={listing} key={Math.random()} />
+//   ));
+
+//   function handleClickNext() {
+//     document.getElementById('container').style.transform = `translateX(${motion - 1010}px)`;
+//     motion -= 1010;
+//   }
+//   function handleClickPrev() {
+//     document.getElementById('container').style.transform = `translateX(${motion + 1010}px)`;
+//     motion += 1010;
+//   }
+
+//   return (
+//     <Test>
+//       <Container id="container">
+//         {houses}
+//       </Container>
+
+//       {/* <Prev onClick={handleClickPrev}>
+//         Prev
+//       </Prev> */}
+//       <Next onClick={handleClickNext}>
+//         Next
+//       </Next>
+
+//     </Test>
+//   );
+// }
 
 export default ListingContainer;

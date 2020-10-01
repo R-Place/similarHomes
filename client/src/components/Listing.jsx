@@ -38,7 +38,7 @@ function Listing({ listing }) {
         src={photo}
         alt="Listing"
       />
-      <Price>
+      <Price id="price">
         $
         {price}
       </Price>
