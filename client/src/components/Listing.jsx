@@ -2,18 +2,20 @@ import React from 'react';
 import styled from 'styled-components';
 
 const List = styled.div`
+font-size: 16px;
 width:242px;
 display:flex;
 flex-direction:column;
 // border:5px solid blue;
 `;
 const Description = styled.div`
-padding:2px
+font-size: 16px;
+padding:2px;
 justify-content:space-between;
 `;
 const Image = styled.img`
 border-radius:10%;
-padding: 10px;
+padding: 9px;
 width: 225px;
 height: 160px;
 position:relative;
@@ -31,10 +33,22 @@ position:relative;
  `;
 
 const Item = styled.span`
+text-overflow:ellipsis;
+overflow: hidden;
+white-space: nowrap;
 padding:2px;
+width: 218px;
+`;
+const Test = styled.img`
+width: 22px;
+height: 22px;
+top: 3px;
+position: relative;
 `;
 const Price = styled.span`
-padding:2px;
+position:relative;
+top: 5px;
+font-size: 16px;
 font-size: 18px;
 font-weight:bold;
 `;
@@ -54,24 +68,31 @@ function Listing({ listing }) {
       />
       <Price id="price">
         $
-        {price}
+        {price.toLocaleString()}
       </Price>
       <Description>
-        {baths}
-        ba {' '}
+
+        <Test src="https://r-place-photos.s3.us-east-2.amazonaws.com/Bed.png
+" alt="bed"/>
         {bedrooms}
         bd {' '}
-        {sqfootage}
-        sqft {' '}
+        <Test src="https://r-place-photos.s3.us-east-2.amazonaws.com/Baths.png
+" alt="bath"/>
+        {baths}
+        ba {' '}
+        <Test src="https://r-place-photos.s3.us-east-2.amazonaws.com/Sqft.png
+" alt="sqft"/>
+        {sqfootage.toLocaleString()}
+        {' '}sqft
       </Description>
       <Item>
-        {address}
+        {address.toLocaleString()}
       </Item>
 
       <Item>
         {district}
 
-        , San Francisco
+        , San Francisco, CA
       </Item>
     </List>
 

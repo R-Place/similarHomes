@@ -5,32 +5,35 @@ import Listing from './Listing.jsx';
 const Container = styled.div`
 display:flex;
 justify-content:space-between;
-overflow:hidden
+// overflow:hidden
 width:1010;
 transition: 0.8s;
 `;
 
 const Prev = styled.button`
-width:38px;
-height:38px;
+border: 1px solid rgb(232, 233, 234);
+font-size: 21px;
+background-color: rgb(255, 255, 255);
+width:34px;
+height:34px;
 border-radius:50%;
-border:1px solid purple;
-position:absolute;
-top:40%;
+position:relative;
+top:50%;
 left: -1px;
 `;
 const Next = styled.button`
-width:38px;
-height:38px;
+border: 1px solid rgb(232, 233, 234);
+background-color: rgb(255, 255, 255);
+font-size: 21px;
+width:34px;
+height:34px;
 border-radius:50%;
-border:1px solid purple;
-position:absolute;
-top:40%;
-right: -1px;
+position:relative;
+top:50%;
+right: -900px;
 `;
 
 const Test = styled.div`
-position:relative;
 width:1010;
 margin:50px auto;
 `;
@@ -118,35 +121,5 @@ class ListingContainer extends React.Component {
     );
   }
 }
-// function ListingContainer({ listings }) {
-//   const houses = listings.map((listing) => (
-//     <Listing listing={listing} key={Math.random()} />
-//   ));
-
-//   function handleClickNext() {
-//     document.getElementById('container').style.transform = `translateX(${motion - 1010}px)`;
-//     motion -= 1010;
-//   }
-//   function handleClickPrev() {
-//     document.getElementById('container').style.transform = `translateX(${motion + 1010}px)`;
-//     motion += 1010;
-//   }
-
-//   return (
-//     <Test>
-//       <Container id="container">
-//         {houses}
-//       </Container>
-
-//       {/* <Prev onClick={handleClickPrev}>
-//         Prev
-//       </Prev> */}
-//       <Next onClick={handleClickNext}>
-//         Next
-//       </Next>
-
-//     </Test>
-//   );
-// }
 
 export default ListingContainer;

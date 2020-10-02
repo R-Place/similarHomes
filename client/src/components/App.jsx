@@ -28,37 +28,44 @@ class App extends React.Component {
     font-size: 1.5em;
     position:absolute;
     // border:5px solid red;
-    left: 10px;
+    left: 7px;
+    top:25px;
     `;
     const Test = styled.div`
     position:relative;
     width:1010;
     margin:50px auto;
+    font-family:TruliaSans, system, -apple-system, Roboto, "Segoe UI Bold", Arial, sans-serif
     `;
     const Listing = styled.div`
     //border:5px solid green;
     width:1010px;
     margin:50px auto;
-    overflow: hidden;
-    `;
-    const Prev = styled.button`
-    width:47px;
-    height:47px;
-    border-radius:50%;
-    // border:1px solid green;
     position:absolute;
-    top:40%;
-    left: -10px;
+    // overflow: hidden;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
     `;
-    const Next = styled.button`
-    width:47px;
-    height:47px;
-    border-radius:50%;
-    // border:1px solid green;
-    position:absolute;
-    top:40%;
-    right: -10px;
-    `;
+    // const Prev = styled.button`
+    // width:47px;
+    // height:47px;
+    // border-radius:50%;
+    // // border:1px solid green;
+    // // position:absolute; working
+    // position:relative;
+    // top:40%;
+    // left: -10px;
+    // `;
+    // const Next = styled.button`
+    // width:47px;
+    // height:47px;
+    // border-radius:50%;
+    // // border:1px solid green;
+    // // position:absolute; working not with scroll
+    // position:relative;
+    // top:40%;
+    // right: -10px;
+    // `;
 
     return (
 
