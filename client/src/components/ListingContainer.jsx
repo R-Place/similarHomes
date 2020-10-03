@@ -6,7 +6,6 @@ const Container = styled.div`
 display:flex;
 justify-content:space-between;
 // overflow:hidden
-width:1010;
 transition: 0.8s;
 `;
 
@@ -24,6 +23,7 @@ white-space: nowrap;
 `;
 const Next = styled.button`
 border: 1px solid rgb(232, 233, 234);
+background-color: rgb(255, 255, 255);
 font-size: 21px;
 width:34px;
 height:34px;
@@ -50,17 +50,17 @@ class ListingContainer extends React.Component {
   }
 
   handleClickNext(event) {
+    event.preventDefault();
     document.getElementById('container').style.transform = `translateX(${scroll - 1010}px)`;
     scroll -= 1010;
     this.setState({ motion: scroll });
-    event.preventDefault();
   }
 
   handleClickPrev(event) {
+    event.preventDefault();
     document.getElementById('container').style.transform = `translateX(${scroll + 1010}px)`;
     scroll += 1010;
     this.setState({ motion: scroll });
-    event.preventDefault();
   }
 
   render() {
@@ -76,11 +76,10 @@ class ListingContainer extends React.Component {
             {houses}
           </Container>
           <Next onClick={this.handleClickNext}>
-<svg viewBox="0 0 32 32">
-<path d="M17.65 16.513l-7.147-7.055 1.868-1.893 9.068 8.951-9.069 8.927-1.866-1.896z" fill="#869099" />
-</svg>
-</Next>
-
+            <svg viewBox="0 0 32 32">
+              <path d="M17.65 16.513l-7.147-7.055 1.868-1.893 9.068 8.951-9.069 8.927-1.866-1.896z" fill="#869099" />
+            </svg>
+          </Next>
 
         </Test>
       );
@@ -93,10 +92,10 @@ class ListingContainer extends React.Component {
           </Container>
 
           <Prev onClick={this.handleClickPrev}>
-<svg viewBox="0 0 32 32">
-<path d="M14.292 16.494l7.147 7.056-1.869 1.893-9.067-8.951 9.069-8.927 1.866 1.896z" fill="#869099" />
-</svg>
-</Prev>
+            <svg viewBox="0 0 32 32">
+              <path d="M14.292 16.494l7.147 7.056-1.869 1.893-9.067-8.951 9.069-8.927 1.866 1.896z" fill="#869099" />
+            </svg>
+          </Prev>
         </Test>
       );
     }
@@ -108,15 +107,15 @@ class ListingContainer extends React.Component {
           </Container>
 
           <Prev onClick={this.handleClickPrev}>
-<svg viewBox="0 0 32 32">
-<path d="M14.292 16.494l7.147 7.056-1.869 1.893-9.067-8.951 9.069-8.927 1.866 1.896z" fill="#869099" />
-</svg>
-</Prev>
-<Next onClick={this.handleClickNext}>
-<svg viewBox="0 0 32 32">
-<path d="M17.65 16.513l-7.147-7.055 1.868-1.893 9.068 8.951-9.069 8.927-1.866-1.896z" fill="#869099" />
-</svg>
-</Next>
+            <svg viewBox="0 0 32 32">
+              <path d="M14.292 16.494l7.147 7.056-1.869 1.893-9.067-8.951 9.069-8.927 1.866 1.896z" fill="#869099" />
+            </svg>
+          </Prev>
+          <Next onClick={this.handleClickNext}>
+            <svg viewBox="0 0 32 32">
+              <path d="M17.65 16.513l-7.147-7.055 1.868-1.893 9.068 8.951-9.069 8.927-1.866-1.896z" fill="#869099" />
+            </svg>
+          </Next>
 
         </Test>
       );
@@ -133,6 +132,3 @@ class ListingContainer extends React.Component {
   }
 }
 export default ListingContainer;
-
-
-

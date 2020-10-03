@@ -30,7 +30,7 @@ class App extends React.Component {
     position:absolute;
     // border:5px solid red;
     left: 7px;
-    top:75px;
+    top:115px;
     `;
     const Test = styled.div`
     position:relative;
@@ -43,9 +43,7 @@ class App extends React.Component {
     width:1010px;
     margin:50px auto;
     position:absolute;
-    // overflow: hidden;
-    overflow: auto;
-    // -webkit-overflow-scrolling: touch;
+    overflow: hidden;
     `;
     return (
 
