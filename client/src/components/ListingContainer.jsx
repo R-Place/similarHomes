@@ -17,9 +17,10 @@ background-color: rgb(255, 255, 255);
 width:34px;
 height:34px;
 border-radius:50%;
-position:relative;
+position:absolute;
 top:50%;
 left: -1px;
+white-space: nowrap;
 `;
 const Next = styled.button`
 border: 1px solid rgb(232, 233, 234);
@@ -28,14 +29,16 @@ font-size: 21px;
 width:34px;
 height:34px;
 border-radius:50%;
-position:relative;
+position:absolute;
 top:50%;
-right: -900px;
+right: 0px;
+white-space: nowrap;
 `;
 
 const Test = styled.div`
 width:1010;
 margin:50px auto;
+position:relative;
 `;
 
 let scroll = 0;

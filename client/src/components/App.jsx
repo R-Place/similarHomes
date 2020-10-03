@@ -9,6 +9,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       listings: [],
+      favorited: false,
     };
     this.getListings = this.getListings.bind(this);
   }
@@ -29,7 +30,7 @@ class App extends React.Component {
     position:absolute;
     // border:5px solid red;
     left: 7px;
-    top:25px;
+    top:75px;
     `;
     const Test = styled.div`
     position:relative;
@@ -44,38 +45,16 @@ class App extends React.Component {
     position:absolute;
     // overflow: hidden;
     overflow: auto;
-    -webkit-overflow-scrolling: touch;
+    // -webkit-overflow-scrolling: touch;
     `;
-    // const Prev = styled.button`
-    // width:47px;
-    // height:47px;
-    // border-radius:50%;
-    // // border:1px solid green;
-    // // position:absolute; working
-    // position:relative;
-    // top:40%;
-    // left: -10px;
-    // `;
-    // const Next = styled.button`
-    // width:47px;
-    // height:47px;
-    // border-radius:50%;
-    // // border:1px solid green;
-    // // position:absolute; working not with scroll
-    // position:relative;
-    // top:40%;
-    // right: -10px;
-    // `;
 
     return (
 
       <Test>
         <Title>Similar Homes You May Like</Title>
-
         <Listing id="listing">
           <ListingContainer listings={this.state.listings} />
         </Listing>
-
       </Test>
 
     );
