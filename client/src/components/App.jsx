@@ -47,7 +47,6 @@ class App extends React.Component {
     overflow: auto;
     // -webkit-overflow-scrolling: touch;
     `;
-
     return (
 
       <Test>
