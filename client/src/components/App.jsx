@@ -9,7 +9,6 @@ class App extends React.Component {
     super(props);
     this.state = {
       listings: [],
-      favorited: false,
     };
     this.getListings = this.getListings.bind(this);
   }
@@ -39,7 +38,6 @@ class App extends React.Component {
     font-family:TruliaSans, system, -apple-system, Roboto, "Segoe UI Bold", Arial, sans-serif
     `;
     const Listing = styled.div`
-    //border:5px solid green;
     width:1010px;
     margin:50px auto;
     position:absolute;
@@ -48,7 +46,7 @@ class App extends React.Component {
     return (
 
       <Test>
-        <Title>Similar Homes You May Like</Title>
+        {/* <Title>Similar Homes You May Like</Title> */}
         <Listing id="listing">
           <ListingContainer listings={this.state.listings} />
         </Listing>

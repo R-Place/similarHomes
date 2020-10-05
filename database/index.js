@@ -16,6 +16,7 @@ const similarHomesSchema = new mongoose.Schema({
   address: String,
   price: Number,
   photo: String,
+  brandNew: Boolean,
 });
 
 const Homes = mongoose.model('Homes', similarHomesSchema);
@@ -29,6 +30,7 @@ const addHome = (newhome) => {
     address: newhome.address,
     price: newhome.price,
     photo: newhome.photo,
+    brandNew: newhome.brandNew,
   });
   home.save((err) => {
     if (err) {
