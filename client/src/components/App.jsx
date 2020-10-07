@@ -18,7 +18,7 @@ class App extends React.Component {
   }
 
   getListings() {
-    axios.get('/api/similarHomes')
+    axios.get('http://localhost:3001/api/similarHomes')
       // .then((res) => res.data.slice(0, 14))
       .then((res) => this.setState({ listings: res.data }));
   }
@@ -35,13 +35,15 @@ class App extends React.Component {
     position:relative;
     width:1010;
     margin:50px auto;
-    font-family:TruliaSans, system, -apple-system, Roboto, "Segoe UI Bold", Arial, sans-serif
+    font-family:TruliaSans, system, -apple-system, Roboto, "Segoe UI Bold", Arial, sans-serif;
+    left: 440px;
     `;
     const Listing = styled.div`
     width:1010px;
     margin:50px auto;
     position:absolute;
     overflow: hidden;
+    top: -160px;
     `;
     return (
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Listing from './Listing.jsx';
-
+const axios = require('axios');
 const Container = styled.div`
 display:flex;
 justify-content:space-between;
@@ -48,9 +48,22 @@ let scroll = 0;
 class ListingContainer extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { motion: scroll };
+    this.state = {
+      motion: scroll,
+      favorited: {},
+    };
     this.handleClickNext = this.handleClickNext.bind(this);
     this.handleClickPrev = this.handleClickPrev.bind(this);
+    this.newHandleFavorite = this.newHandleFavorite.bind(this);
+  }
+
+  componentDidMount() {
+    const { listings } = this.props;
+    const thefavs = {};
+    listings.map((listing) => (
+      thefavs[listing.index] = listing.favorited
+    ));
+    this.setState({ favorited: thefavs });
   }
 
   handleClickNext(event) {
@@ -67,11 +80,29 @@ class ListingContainer extends React.Component {
     event.preventDefault();
   }
 
+  newHandleFavorite(id, index) {
+    event.preventDefault();
+    this.state.favorited[index] = !this.state.favorited[index];
+
+    this.setState({ favorited: this.state.favorited });
+    axios.post('http://localhost:3001/api/similarHomes', {
+      id: id,
+      favorited: this.state.favorited[index],
+    })
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
   render() {
     const { listings } = this.props;
-    const houses = listings.map((listing) => (
-      <Listing listing={listing} key={Math.random()} />
+    const houses = listings.map((listing, i) => (
+      <Listing listing={listing} key={Math.random()} newHandleFavorite={this.newHandleFavorite} favorited={this.state.favorited} />
     ));
+
     const scrollable = this.state.motion;
     return (
       <Test>

@@ -23,6 +23,8 @@ const photos = ['https://r-place-photos.s3.us-east-2.amazonaws.com/genMid.501642
 
 const brandNew = [true, false, false, false];
 
+// const index = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
+let counter = 0;
 const generateRandomListing = () => {
   const listing = {};
   listing.bedrooms = randomItem(bedrooms);
@@ -33,6 +35,9 @@ const generateRandomListing = () => {
   listing.price = randomItem(price);
   listing.photo = randomItem(photos);
   listing.brandNew = randomItem(brandNew);
+  listing.favorited = false;
+  listing.index = counter;
+  counter += 1;
   return listing;
 };
 

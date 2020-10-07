@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const ObjectId = require('mongodb').ObjectID;
 
 mongoose.connect('mongodb://localhost/similarHomes', { useNewUrlParser: true, useUnifiedTopology: true });
 
@@ -17,6 +18,8 @@ const similarHomesSchema = new mongoose.Schema({
   price: Number,
   photo: String,
   brandNew: Boolean,
+  favorited: Boolean,
+  index: Number,
 });
 
 const Homes = mongoose.model('Homes', similarHomesSchema);
@@ -31,6 +34,8 @@ const addHome = (newhome) => {
     price: newhome.price,
     photo: newhome.photo,
     brandNew: newhome.brandNew,
+    favorited: newhome.favorited,
+    index: newhome.index,
   });
   home.save((err) => {
     if (err) {
@@ -50,8 +55,20 @@ const getAllHomes = (callback) => {
     .catch((err) => console.log(err));
 };
 
+const favoriteHome = (id, isfavorited, callback) => {
+  console.log(id)
+  console.log(isfavorited)
+  Homes.updateOne(
+    { _id: ObjectId(id) },
+    { $set: { favorited: isfavorited } },
+  )
+    .then((res) => callback(null, res))
+    .catch((err) => console.log(err));
+};
+
 module.exports.addHome = addHome;
 module.exports.drop = drop;
 module.exports.getAllHomes = getAllHomes;
+module.exports.favoriteHome = favoriteHome;
 
 // Homes.aggregate([{ $sample: { size: 15}}]).exec()
