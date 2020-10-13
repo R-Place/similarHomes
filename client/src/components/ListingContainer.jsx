@@ -1,12 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 import Listing from './Listing.jsx';
+
 const axios = require('axios');
+
 const Container = styled.div`
 display:flex;
 justify-content:space-between;
 transition: 0.8s;
-object-fit: cover;
 `;
 // overflow:hidden
 
@@ -45,6 +46,72 @@ width:1010;
 margin:50px auto;
 position:relative;
 `;
+
+const ShowModal = styled.button`
+border-radius:8%;
+padding: 9px;
+width: 244px;
+height: 160px;
+position:absolute;
+left: 359%;
+top: 7%;
+&:focus{outline:none;}
+background-color: rgb(232, 233, 234);
+border: rgb(232, 233, 234);
+cursor:pointer;
+font-family:TruliaSans, system, -apple-system, Roboto, "Segoe UI Bold", Arial, sans-serif;
+font-size:16px;
+`;
+
+const ShowModalInfo = styled.div`
+font-size: 16px;
+font-wieght: bold;
+font-family:TruliaSans, system, -apple-system, Roboto, "Segoe UI Bold", Arial, sans-serif;
+position:relative;
+left:-17%;
+top:15px;
+`;
+
+const ShowModalCity = styled.div`
+font-size: 20px;
+font-weight: bold;
+line-height:1.2;
+font-family:TruliaSans, system, -apple-system, Roboto, "Segoe UI Bold", Arial, sans-serif;
+position:relative;
+left:-19%;
+top: 15px;
+`;
+
+const TakeALook = styled.button`
+font-size: 16px;
+font-weight: bold;
+font-family:TruliaSans, system, -apple-system, Roboto, "Segoe UI Bold", Arial, sans-serif;
+position:relative;
+left:-24%;
+top:23px;
+border-color:transparent;
+color:rgb(0, 120, 130);
+background-color:rgb(255, 255, 255);
+padding: 8px 16px;
+white-space: nowrap;
+cursor:pointer;
+border-radius:8px;
+&:focus{outline:none;}
+
+&:hover {
+  background-color: rgb(0, 120, 130);
+  color: rgb(255, 255, 255);
+  // border-color: rgb(0, 120, 130);
+}
+`;
+
+const Heartred = styled.div`
+  width: 30px;
+  height: 30px;
+  position:absolute;
+  left: 62%;
+  top:68px;
+ `;
 
 let scroll = 0;
 
@@ -89,7 +156,7 @@ class ListingContainer extends React.Component {
 
     this.setState({ favorited: this.state.favorited });
     axios.post('/api/similarHomes', {
-      id: id,
+      id,
       favorited: this.state.favorited[index],
     })
       // .then((response) => {
@@ -107,11 +174,29 @@ class ListingContainer extends React.Component {
     ));
 
     const scrollable = this.state.motion;
-    console.log(scrollable)
     return (
       <Test>
         <Container id="container">
           {houses}
+          <ShowModal>
+            <ShowModalInfo>
+            See saved homes in
+            </ShowModalInfo>
+
+            <ShowModalCity>
+
+              San Francisco
+
+            </ShowModalCity>
+            <Heartred>
+            <svg viewBox="0 0 32 32">
+              <path d="M16.157 6.31A7.874 7.874 0 1 1 27.3 17.433l-1.913 1.912-9.254 9.254-1.88-1.88-7.373-7.374-1.91-1.91a7.874 7.874 0 1 1 11.137-11.13l.027.025.022-.022z" fill="#ff5e3f" />
+            </svg>
+          </Heartred>
+            <TakeALook>
+            Take a look
+            </TakeALook>
+          </ShowModal>
         </Container>
 
         {scrollable === -3030 && (
@@ -121,6 +206,7 @@ class ListingContainer extends React.Component {
             <path d="M14.292 16.494l7.147 7.056-1.869 1.893-9.067-8.951 9.069-8.927 1.866 1.896z" fill="#869099" />
           </svg>
         </Prev>
+
         ) }
         {scrollable === -1010 && (
         <>
