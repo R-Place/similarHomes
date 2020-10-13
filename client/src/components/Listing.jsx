@@ -40,6 +40,7 @@ left:195px;
 top: -185px;
 visbility:hidden;
 position:relative;
+cursor:pointer;
  `;
 const Heartfillvis = styled.div`
 width: 30px;
@@ -47,6 +48,8 @@ height: 30px;
 left:195px;
 top: -185px;
 position:relative;
+cursor:pointer;
+
  `;
 const Heartred = styled.div`
 width: 30px;

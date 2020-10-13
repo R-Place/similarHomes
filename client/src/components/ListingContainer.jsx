@@ -7,7 +7,6 @@ display:flex;
 justify-content:space-between;
 transition: 0.8s;
 object-fit: cover;
-
 `;
 // overflow:hidden
 
@@ -21,6 +20,8 @@ border-radius:50%;
 position:absolute;
 top:50%;
 left: -1px;
+cursor:pointer;
+
 white-space: nowrap;
 &:focus{outline:none;}
 `;
@@ -34,6 +35,8 @@ border-radius:50%;
 position:absolute;
 top:50%;
 right: 0px;
+cursor:pointer;
+
 &:focus{outline:none;}
 `;
 
@@ -85,13 +88,13 @@ class ListingContainer extends React.Component {
     this.state.favorited[index] = !this.state.favorited[index];
 
     this.setState({ favorited: this.state.favorited });
-    axios.post('http://localhost:3001/api/similarHomes', {
+    axios.post('/api/similarHomes', {
       id: id,
       favorited: this.state.favorited[index],
     })
-      .then((response) => {
-        console.log(response);
-      })
+      // .then((response) => {
+      //   console.log(response);
+      // })
       .catch((error) => {
         console.log(error);
       });
@@ -104,6 +107,7 @@ class ListingContainer extends React.Component {
     ));
 
     const scrollable = this.state.motion;
+    console.log(scrollable)
     return (
       <Test>
         <Container id="container">
@@ -111,6 +115,7 @@ class ListingContainer extends React.Component {
         </Container>
 
         {scrollable === -3030 && (
+
         <Prev onClick={this.handleClickPrev}>
           <svg viewBox="0 0 32 32">
             <path d="M14.292 16.494l7.147 7.056-1.869 1.893-9.067-8.951 9.069-8.927 1.866 1.896z" fill="#869099" />
