@@ -1,8 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const axios = require('axios');
-
 const List = styled.div`
 font-size: 16px;
 width:242px;
@@ -82,7 +80,7 @@ const BrandNew = styled.div`
 padding:2px 4px;
 position:relative;
 border-radius:20%;
-top:30px;
+top:28px;
 left: -235px;
 background-color:rgb(255, 255, 255);
 font-size: 12px;
@@ -101,103 +99,92 @@ width: 0px;
 height:0px;
 `;
 
-class Listing extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+function Listing(props) {
+  const {
+    address, baths, bedrooms, district, price, photo, sqfootage, brandNew, _id, favorited, index,
+  } = props.listing;
 
-  handleFavorite() {
-    event.preventDefault();
-    this.setState({ favorited: !this.state.favorited });
-  }
-
-  render() {
-    const {
-      address, baths, bedrooms, district, price, photo, sqfootage, brandNew, _id, favorited, index,
-    } = this.props.listing;
-
-    return (
-      <>
-        <List>
-          <Image
-            src={photo}
-            alt="Listing"
-          />
-          <Filler>
-            {this.props.favorited[index] ? (
-              <>
-                <Heartred onClick={() => this.props.newHandleFavorite(_id, index)}>
-                  <svg viewBox="0 0 32 32">
-                    <path d="M16.157 6.31A7.874 7.874 0 1 1 27.3 17.433l-1.913 1.912-9.254 9.254-1.88-1.88-7.373-7.374-1.91-1.91a7.874 7.874 0 1 1 11.137-11.13l.027.025.022-.022z" fill="#ff5e3f" />
-                  </svg>
-                </Heartred>
-                <Heartfill onClick={() => this.props.newHandleFavorite(_id, index)} id="fill">
-                  <svg viewBox="0 0 32 32">
-                    <path d="M26.95 11.863a5.193 5.193 0 0 1-1.53 3.69l-1.913 1.912-7.373 7.373-7.371-7.373-1.912-1.912a5.214 5.214 0 1 1 7.377-7.366l1.906 1.907 1.908-1.908a5.214 5.214 0 0 1 8.908 3.677z" fillOpacity=".0" fill="#000" />
-                  </svg>
-                </Heartfill>
-              </>
-            ) : (
-              <>
-                <Heartwhite onClick={() => this.props.newHandleFavorite(_id, index)}>
-                  <svg viewBox="0 0 32 32">
-                    <path d="M26.95 11.863a5.214 5.214 0 0 0-8.908-3.677l-1.908 1.908-1.906-1.908a5.214 5.214 0 1 0-7.377 7.366l1.912 1.913 7.371 7.373 7.373-7.373 1.912-1.912a5.193 5.193 0 0 0 1.53-3.69zM16.157 6.31A7.874 7.874 0 1 1 27.3 17.433l-1.913 1.913-9.254 9.254-1.88-1.88-7.373-7.374-1.91-1.91a7.874 7.874 0 1 1 11.137-11.13l.027.025.022-.022z" fill="#fff" />
-                  </svg>
-                </Heartwhite>
-                <Heartfillvis onClick={() => this.props.newHandleFavorite(_id, index)} id="fill">
-                  <svg viewBox="0 0 32 32">
-                    <path d="M26.95 11.863a5.193 5.193 0 0 1-1.53 3.69l-1.913 1.912-7.373 7.373-7.371-7.373-1.912-1.912a5.214 5.214 0 1 1 7.377-7.366l1.906 1.907 1.908-1.908a5.214 5.214 0 0 1 8.908 3.677z" fillOpacity=".3" fill="#000" />
-                  </svg>
-                </Heartfillvis>
-              </>
-            )}
-          </Filler>
-
-          <Price id="price">
-            $
-            {price.toLocaleString()}
-          </Price>
-          <Description>
-            <Test
-              src="https://r-place-photos.s3.us-east-2.amazonaws.com/Bed.png"
-              alt="bed"
-            />
-            {bedrooms}
-            bd
-            {' '}
-            {' '}
-            <Test
-              src="https://r-place-photos.s3.us-east-2.amazonaws.com/Baths.png"
-              alt="bath"
-            />
-            {baths}
-            ba
-            {' '}
-            {' '}
-            <Test
-              src="https://r-place-photos.s3.us-east-2.amazonaws.com/Sqft.png"
-              alt="sqft"
-            />
-            {sqfootage.toLocaleString()}
-            {' '}
-            sqft
-          </Description>
-          <Item>
-            {address.toLocaleString()}
-          </Item>
-          <Item>
-            {district}
-            , San Francisco, CA
-          </Item>
-        </List>
+  return (
+    <>
+      <List>
+        <Image
+          src={photo}
+          alt="Listing"
+        />
         <Filler>
-          {brandNew && (
-          <BrandNew>NEW</BrandNew>
+          {favorited[index] ? (
+            <>
+              <Heartred onClick={() => props.newHandleFavorite(_id, index)}>
+                <svg viewBox="0 0 32 32">
+                  <path d="M16.157 6.31A7.874 7.874 0 1 1 27.3 17.433l-1.913 1.912-9.254 9.254-1.88-1.88-7.373-7.374-1.91-1.91a7.874 7.874 0 1 1 11.137-11.13l.027.025.022-.022z" fill="#ff5e3f" />
+                </svg>
+              </Heartred>
+              <Heartfill onClick={() => props.newHandleFavorite(_id, index)} id="fill">
+                <svg viewBox="0 0 32 32">
+                  <path d="M26.95 11.863a5.193 5.193 0 0 1-1.53 3.69l-1.913 1.912-7.373 7.373-7.371-7.373-1.912-1.912a5.214 5.214 0 1 1 7.377-7.366l1.906 1.907 1.908-1.908a5.214 5.214 0 0 1 8.908 3.677z" fillOpacity=".0" fill="#000" />
+                </svg>
+              </Heartfill>
+            </>
+          ) : (
+            <>
+              <Heartwhite onClick={() => props.newHandleFavorite(_id, index)}>
+                <svg viewBox="0 0 32 32">
+                  <path d="M26.95 11.863a5.214 5.214 0 0 0-8.908-3.677l-1.908 1.908-1.906-1.908a5.214 5.214 0 1 0-7.377 7.366l1.912 1.913 7.371 7.373 7.373-7.373 1.912-1.912a5.193 5.193 0 0 0 1.53-3.69zM16.157 6.31A7.874 7.874 0 1 1 27.3 17.433l-1.913 1.913-9.254 9.254-1.88-1.88-7.373-7.374-1.91-1.91a7.874 7.874 0 1 1 11.137-11.13l.027.025.022-.022z" fill="#fff" />
+                </svg>
+              </Heartwhite>
+              <Heartfillvis onClick={() => props.newHandleFavorite(_id, index)} id="fill">
+                <svg viewBox="0 0 32 32">
+                  <path d="M26.95 11.863a5.193 5.193 0 0 1-1.53 3.69l-1.913 1.912-7.373 7.373-7.371-7.373-1.912-1.912a5.214 5.214 0 1 1 7.377-7.366l1.906 1.907 1.908-1.908a5.214 5.214 0 0 1 8.908 3.677z" fillOpacity=".3" fill="#000" />
+                </svg>
+              </Heartfillvis>
+            </>
           )}
         </Filler>
-      </>
-    );
-  }
+
+        <Price id="price">
+          $
+          {price.toLocaleString()}
+        </Price>
+        <Description>
+          <Test
+            src="https://r-place-photos.s3.us-east-2.amazonaws.com/Bed.png"
+            alt="bed"
+          />
+          {bedrooms}
+          bd
+          {' '}
+          {' '}
+          <Test
+            src="https://r-place-photos.s3.us-east-2.amazonaws.com/Baths.png"
+            alt="bath"
+          />
+          {baths}
+          ba
+          {' '}
+          {' '}
+          <Test
+            src="https://r-place-photos.s3.us-east-2.amazonaws.com/Sqft.png"
+            alt="sqft"
+          />
+          {sqfootage.toLocaleString()}
+          {' '}
+          sqft
+        </Description>
+        <Item>
+          {address.toLocaleString()}
+        </Item>
+        <Item>
+          {district}
+          , San Francisco, CA
+        </Item>
+      </List>
+      <Filler>
+        {brandNew && (
+          <BrandNew>NEW</BrandNew>
+        )}
+      </Filler>
+    </>
+  );
 }
 
 export default Listing;

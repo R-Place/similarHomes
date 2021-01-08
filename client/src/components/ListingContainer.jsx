@@ -1,15 +1,13 @@
+import axios from 'axios';
 import React from 'react';
 import styled from 'styled-components';
 import Listing from './Listing.jsx';
-
-const axios = require('axios');
 
 const Container = styled.div`
 display:flex;
 justify-content:space-between;
 transition: 0.8s;
 `;
-// overflow:hidden
 
 const Prev = styled.button`
 border: 1px solid rgb(232, 233, 234);
@@ -20,9 +18,8 @@ height:34px;
 border-radius:50%;
 position:absolute;
 top:50%;
-left: -1px;
+left: 0px;
 cursor:pointer;
-
 white-space: nowrap;
 &:focus{outline:none;}
 `;
@@ -35,9 +32,8 @@ height:34px;
 border-radius:50%;
 position:absolute;
 top:50%;
-right: 0px;
+right: 45px;
 cursor:pointer;
-
 &:focus{outline:none;}
 `;
 
@@ -50,7 +46,7 @@ position:relative;
 const ShowModal = styled.button`
 border-radius:8%;
 padding: 9px;
-width: 244px;
+width: 234px;
 height: 160px;
 position:absolute;
 left: 359%;
@@ -97,7 +93,6 @@ white-space: nowrap;
 cursor:pointer;
 border-radius:8px;
 &:focus{outline:none;}
-
 &:hover {
   background-color: rgb(0, 120, 130);
   color: rgb(255, 255, 255);
@@ -137,34 +132,29 @@ class ListingContainer extends React.Component {
   }
 
   handleClickNext(event) {
-    document.getElementById('container').style.transform = `translateX(${scroll - 1010}px)`;
-    scroll -= 1010;
+    document.getElementById('container').style.transform = `translateX(${scroll - 965}px)`;
+    scroll -= 965;
     this.setState({ motion: scroll });
     event.preventDefault();
   }
 
   handleClickPrev(event) {
-    document.getElementById('container').style.transform = `translateX(${scroll + 1010}px)`;
-    scroll += 1010;
+    document.getElementById('container').style.transform = `translateX(${scroll + 965}px)`;
+    scroll += 965;
     this.setState({ motion: scroll });
     event.preventDefault();
   }
 
   newHandleFavorite(id, index) {
+    const { favorited } = this.state;
     event.preventDefault();
-    this.state.favorited[index] = !this.state.favorited[index];
+    favorited[index] = !favorited[index];
 
-    this.setState({ favorited: this.state.favorited });
+    this.setState({ favorited });
     axios.post('/api/similarHomes', {
       id,
-      favorited: this.state.favorited[index],
-    })
-      // .then((response) => {
-      //   console.log(response);
-      // })
-      .catch((error) => {
-        console.log(error);
-      });
+      favorited: favorited[index],
+    });
   }
 
   render() {
@@ -178,9 +168,9 @@ class ListingContainer extends React.Component {
       <Test>
         <Container id="container">
           {houses}
-          <ShowModal>
+          <ShowModal onClick={this.props.showModal}>
             <ShowModalInfo>
-            See saved homes in
+              See saved homes in
             </ShowModalInfo>
 
             <ShowModalCity>
@@ -189,17 +179,17 @@ class ListingContainer extends React.Component {
 
             </ShowModalCity>
             <Heartred>
-            <svg viewBox="0 0 32 32">
-              <path d="M16.157 6.31A7.874 7.874 0 1 1 27.3 17.433l-1.913 1.912-9.254 9.254-1.88-1.88-7.373-7.374-1.91-1.91a7.874 7.874 0 1 1 11.137-11.13l.027.025.022-.022z" fill="#ff5e3f" />
-            </svg>
-          </Heartred>
+              <svg viewBox="0 0 32 32">
+                <path d="M16.157 6.31A7.874 7.874 0 1 1 27.3 17.433l-1.913 1.912-9.254 9.254-1.88-1.88-7.373-7.374-1.91-1.91a7.874 7.874 0 1 1 11.137-11.13l.027.025.022-.022z" fill="#ff5e3f" />
+              </svg>
+            </Heartred>
             <TakeALook>
-            Take a look
+              Take a look
             </TakeALook>
           </ShowModal>
         </Container>
 
-        {scrollable === -3030 && (
+        {scrollable === -2895 && (
 
         <Prev onClick={this.handleClickPrev}>
           <svg viewBox="0 0 32 32">
@@ -208,7 +198,7 @@ class ListingContainer extends React.Component {
         </Prev>
 
         ) }
-        {scrollable === -1010 && (
+        {scrollable === -965 && (
         <>
           <Prev onClick={this.handleClickPrev}>
             <svg viewBox="0 0 32 32">
@@ -222,7 +212,7 @@ class ListingContainer extends React.Component {
           </Next>
         </>
         ) }
-        {scrollable === -2020 && (
+        {scrollable === -1930 && (
         <>
           <Prev onClick={this.handleClickPrev}>
             <svg viewBox="0 0 32 32">

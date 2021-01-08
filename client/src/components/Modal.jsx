@@ -28,6 +28,7 @@ margin: 0px auto;
 padding: 30;
 position: relative;
 overflow:hidden;
+z-index: 1
 `;
 const Footer = styled.div`
 left: 3px;
@@ -48,7 +49,6 @@ right: 8px;
 // height: 160px;
 //   transform: scale(1.02);
 //   border-radius:10%;
-
 // }
  `;
 
