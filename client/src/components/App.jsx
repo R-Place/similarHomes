@@ -7,7 +7,6 @@ import Modal from './Modal.jsx';
 const Title = styled.h1`
     font-size: 1.5em;
     position:absolute;
-    // left: 285px;
     top: 25px;
     font-family:TruliaSans, system, -apple-system, Roboto, "Segoe UI Bold", Arial, sans-serif;
     color: rgb(59, 65, 68);
@@ -25,17 +24,11 @@ const ListingWrap = styled.div`
     position:relative;
     width:1010;
     height: 300px;
-    // margin:50px auto;
     font-family:TruliaSans, system, -apple-system, Roboto, "Segoe UI Bold", Arial, sans-serif;
-    // left: 280px;
-    // top:30px;
     `;
 const Listing = styled.div`
     width:965px;
-    // margin:50px auto;
-    // position:absolute;
     overflow: hidden;
-    // top: -110px;
     `;
 
 class App extends React.Component {

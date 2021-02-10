@@ -3,7 +3,6 @@ const ObjectId = require('mongodb').ObjectID;
 
 mongoose.connect('mongodb://localhost/similarHomes', { useNewUrlParser: true, useUnifiedTopology: true });
 // mongoose.connect('mongodb://172.17.0.3:27017/similarHomes', { useNewUrlParser: true, useUnifiedTopology: true });
-// mongoose.connect('mongodb://172.17.0.3:27017/similarHomes', { useNewUrlParser: true, useUnifiedTopology: true });
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -51,7 +50,6 @@ const drop = () => {
 };
 
 const getAllHomes = (callback) => {
-  // Homes.find()
   Homes.aggregate([{ $sample: { size: 15 } }]).exec()
     .then((res) => callback(null, res))
     .catch((err) => callback(err));
@@ -77,5 +75,3 @@ module.exports.drop = drop;
 module.exports.getAllHomes = getAllHomes;
 module.exports.favoriteHome = favoriteHome;
 module.exports.findFavorited = findFavorited;
-
-// Homes.aggregate([{ $sample: { size: 15}}]).exec()

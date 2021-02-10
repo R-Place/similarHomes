@@ -96,7 +96,6 @@ border-radius:8px;
 &:hover {
   background-color: rgb(0, 120, 130);
   color: rgb(255, 255, 255);
-  // border-color: rgb(0, 120, 130);
 }
 `;
 

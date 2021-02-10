@@ -8,7 +8,6 @@ import Listing from '../client/src/components/Listing.jsx';
 import ListingContainer from '../client/src/components/ListingContainer.jsx';
 
 describe('App', () => {
-  // make our assertion and what we expect to happen
   it('find the id listing', () => {
     expect(shallow(<App />).find('#listing').length).toEqual(1);
   });
@@ -16,7 +15,7 @@ describe('App', () => {
 
 describe('should render static HTML', () => {
   it('should render to static HTML', () => {
-    expect(render(<App />).text()).toEqual('Similar Homes You May Like>');
+    expect(render(<App />).text()).toEqual('Similar Homes You May LikeSee saved homes inSan FranciscoTake a look');
   });
 });
 

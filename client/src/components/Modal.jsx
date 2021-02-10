@@ -44,21 +44,11 @@ height: 160px;
 position:relative;
 top: -4px;
 right: 8px;
-// &:hover {
-//   width: 225px;
-// height: 160px;
-//   transform: scale(1.02);
-//   border-radius:10%;
-// }
  `;
 
 const ListingWrap = styled.div`
 width:235px;
 height:260px;
-// border: 1px solid blue;
-// text-overflow:ellipsis;
-// overflow: hidden;
-// white-space: nowrap;
 display:flex;
 flex-direction:column;
 position:relative;
@@ -68,7 +58,6 @@ left: 9px;
 const ListingContainer = styled.div`
 width:500px;
 height:800px;
-// border: 1px solid blue;
 overflow: auto;
 display:grid;
 grid-template-columns: 50% 50%;
@@ -86,7 +75,6 @@ width: 22px;
 height: 22px;
 top: 5px;
 position: relative;
-// border:1px solid orange;
 
 `;
 
@@ -96,7 +84,6 @@ padding:3px;
 top:-20px;
 left: -3px;
 justify-content:space-between;
-// border:1px solid purple;
 position:relative;
 
 `;
@@ -104,7 +91,6 @@ const Item = styled.div`
 height: 90px;
 width: 230px;
 padding: 2px;
-// border:1px solid green;
 position:relative;
 top: -20px;
 font-family:TruliaSans, system, -apple-system, Roboto, "Segoe UI Bold", Arial, sans-serif;
@@ -117,7 +103,6 @@ white-space: nowrap;
 font-family:TruliaSans, system, -apple-system, Roboto, "Segoe UI Bold", Arial, sans-serif;
 width: 230px;
 padding: 2px;
-// border:1px solid green;
 position:relative;
 top: -20px;
 `;
