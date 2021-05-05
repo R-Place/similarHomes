@@ -1,19 +1,8 @@
 # Similar Homes
 
-> Project description
+> Web service allowing customers to view houses you may be interested in
+Javascript, React.js, Styled-Components, PostgreSQL, Express.js, Docker, AWS
 
-## Related Projects
-
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-
-## Table of Contents
-
-1. [Usage](#Usage)
-1. [Requirements](#requirements)
-1. [Development](#development)
 
 ## Usage
 
@@ -21,10 +10,10 @@
 
 ## Requirements
 
-An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 
 - Node 6.13.0
-- etc
+- Webpack
+
 
 ## Development
 
@@ -35,5 +24,8 @@ From within the root directory:
 ```sh
 npm install -g webpack
 npm install
+npm run seed
+npm run build
+npm run start
 ```
 
